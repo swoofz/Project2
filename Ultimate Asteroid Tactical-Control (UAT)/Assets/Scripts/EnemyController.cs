@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
     public static int enemies;  // Create a variable to keep track of how many gameobject have the EnemyController component
-
-    private Transform tf;       // Create a variable to store our transform component
-    private Vector3 moveDir;    // Create a variable to store a vector3 for directional movement
-    public bool ship;           // Create a variable for what kind of enemy this component is 
-    public float speed;         // Create a variable to adjust the movement speed
-    public float rotspeed;      // Create a variable to adjust the rotspeed;
+        
+    private Transform tf;           // Create a variable to store our transform component
+    private Vector3 moveDir;        // Create a variable to store a vector3 for directional movement
+    public bool ship;               // Create a variable for what kind of enemy this component is 
+    public float speed = 0.05f;     // Create a variable to adjust the movement speed
+    public float rotSpeed = 1;      // Create a variable to adjust the rotspeed;
 
     // Use this for initialization
     void Start () {
@@ -25,8 +25,9 @@ public class EnemyController : MonoBehaviour {
         if (PlayerController.instance != null) {    // If there is a playerController in the scene
             tf.position += moveDir * speed;         // Move torward the target's position when instantiated
 
-            if (ship) {         // If the is a ship type enemy
-                GetMoveDir();   // Move torwards the target always
+            if (ship) {                         // If the is a ship type enemy
+                GetMoveDir();                   // Move torwards the target always  
+                tf.right = moveDir * rotSpeed;  // Rotate torwards player
             }
         } else {                    // If not playerController
             Destroy(gameObject);    // Destory all objects with this component
