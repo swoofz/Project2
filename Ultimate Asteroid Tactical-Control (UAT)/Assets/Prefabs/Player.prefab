@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1686614165401778, guid: af13cae8fb616b24dae4b38a4e2a8190, type: 2}
-  speed: 0.07
+  speed: 0.5
   rotSpeed: 5
 --- !u!212 &212841164328775506
 SpriteRenderer:
