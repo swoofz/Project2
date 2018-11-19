@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: 0
-  speed: 0.05
-  rotspeed: 0
+  speed: 0.3
+  rotSpeed: 0
 --- !u!212 &212453075691679276
 SpriteRenderer:
   m_ObjectHideFlags: 1

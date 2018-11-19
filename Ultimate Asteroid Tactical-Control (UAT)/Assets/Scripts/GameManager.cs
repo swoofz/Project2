@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;  // Create a singleton variable for this class
 
-    private float respawnTime = 5;  // Create a variable to detemine how long till respawn
-    private float timeToRespawn;    // Create a variable to count the second to respawn
+    private float respawnTime = 5;      // Create a variable to detemine how long till respawn
+    private float timeToRespawn;        // Create a variable to count the second to respawn
+    private bool gameOver;              // Create a variable to tell the game to stop running
 
-    public GameObject player;       // Create a variable to store a playerController gameObject
-    public int playerLives;         // Create a variable to keep track of how many lives the player has
+    public GameObject player;           // Create a variable to store a playerController gameObject
+    public int playerLives = 1;         // Create a variable to keep track of how many lives the player has
 
     // On load run this
     void Awake() {
@@ -32,11 +33,12 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (playerLives == 0) {   // If player has no lives left
+            gameOver = true;      // Declare that the game is over
             Application.Quit();   // Close the program
         }
 
-        if (PlayerController.instance == null) {    // if there is not playerController in the scene;
-            timeToRespawn++;                        // Start the the respawn timer
+        if (PlayerController.instance == null && !gameOver) { // if there is not playerController in the scene;
+            timeToRespawn++;                                  // Start the the respawn timer
 
             if (timeToRespawn * Time.deltaTime > respawnTime) { // If the time to respawn in greater than the respawn time
                 Respawn();                                      // Respawn player
@@ -47,10 +49,14 @@ public class GameManager : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D collision) {
         Destroy(collision.gameObject);              // Destory any object that leave the playspace
+
+        if (collision.gameObject.tag == "Enemy") {  // If collision is an enemy
+            EnemyController.enemies -= 1;           // Update enemy count
+        }
     }
 
     public void PlayerDied() {
-        playerLives -= 1; // Take a players life away
+        playerLives -= 1;        // Take a players life away
     }
 
     void Respawn() {

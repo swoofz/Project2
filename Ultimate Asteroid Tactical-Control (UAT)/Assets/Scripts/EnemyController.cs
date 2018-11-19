@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
-    public static int enemies;  // Create a variable to keep track of how many gameobject have the EnemyController component
+    public static int enemies;      // Create a variable to keep track of how many gameobject have the EnemyController component
         
     private Transform tf;           // Create a variable to store our transform component
     private Vector3 moveDir;        // Create a variable to store a vector3 for directional movement
@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour {
             }
         } else {                    // If not playerController
             Destroy(gameObject);    // Destory all objects with this component
+            enemies = 0;            // Reset enemy count
         }
 	}
 

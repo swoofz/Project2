@@ -4,28 +4,31 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour {
 
-    private Transform tf;
-    private Vector2 randomPos;
-
-    public List<GameObject> enemies;
-    public List<Transform> spawnLocation;
+    private Vector2 randomPos;          // Create a variable to store a vector2
+    private bool canSpawn;              // Create a variable to check if no errors
+    public List<GameObject> enemies;    // Create a variable to hold a list of gameObjects
 
     // Use this for initialization
     void Start () {
-        tf = GetComponent<Transform>();
-        foreach (Transform child in transform) {
-            spawnLocation.Add(child);
+        if (enemies.Count > 0) {    // If our list has elements in it
+            canSpawn = true;        // Set canSpawn to true for over code to run
         }
     }
 
     // Update is called once per frame
     void Update () {
-        randomPos = Random.insideUnitCircle;
-        randomPos *= 200;
-        Transform player = PlayerController.instance.gameObject.transform;
-        Vector3 newPos = new Vector3(player.position.x + randomPos.x, player.position.y + randomPos.y, 0);
+        if (canSpawn) {                             // If have elements in our list
+            randomPos = Random.insideUnitCircle;    // Get a random point inside a circle with a radius of 1, i.e: (0.3,0.8)
+            randomPos *= 100;                       // Strech the random vector2 just got above 100 units
 
-        GameObject spawnEnemy = enemies[Random.Range(0, enemies.Count)];
-        Instantiate(spawnEnemy, newPos, spawnEnemy.transform.rotation);
+            if (PlayerController.instance != null) {                                  // If there is a playercontroller in our scene
+                Transform player = PlayerController.instance.gameObject.transform;    // Get the transform of the gameObject with the playercontroller
+                Vector3 newPos = player.position + ( Vector3 )randomPos;              // Create a Vector3 at a random position
+                if (EnemyController.enemies < 3) {                                    // If there are less than 3 enemies currently in the scene
+                    GameObject spawnEnemy = enemies[Random.Range(0, enemies.Count)];  // Pick a random enemy
+                    Instantiate(spawnEnemy, newPos, spawnEnemy.transform.rotation);   // Instantiate that random enemy that was picked
+                }
+            }
+        }
     }
 }
