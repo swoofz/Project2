@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         // Load transform component into variable
         tf = GetComponent<Transform>();
+        // Load player in the middle of the screen
+        tf.position = new Vector3(0, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -41,9 +43,9 @@ public class PlayerController : MonoBehaviour {
         // If have a bull gameObject
         if (bullet != null) {
             // Instantiate our object
-            Instantiate(bullet, tf.position + tf.up * 1.5f, tf.rotation);
+            Instantiate(bullet, tf.position + (tf.up * 1.5f), tf.rotation);
         } else {
-            Debug.Log("Need gameObject attached");
+            Debug.Log("Warning: No gameObject attached");
         }
     }
 }
