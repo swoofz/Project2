@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 50742607149395244}
   - component: {fileID: 60091261911241348}
   - component: {fileID: 114651133613044648}
-  - component: {fileID: 114127310849518176}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Enemy
@@ -113,17 +112,6 @@ PolygonCollider2D:
       - {x: 0.225, y: -0.765}
       - {x: 0.465, y: -0.695}
       - {x: 0.555, y: -0.645}
---- !u!114 &114127310849518176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696572261546146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff11c40adc2e0fa46a58bcb814447e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114651133613044648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,6 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615c5f53c08080b48a527c45081d3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: 0
+  speed: 0.05
+  rotspeed: 0
 --- !u!212 &212453075691679276
 SpriteRenderer:
   m_ObjectHideFlags: 1

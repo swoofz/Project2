@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private bool spawn;
+    public List<GameObject> enemies;
+
+
+    // Use this for initialization
+    void Start () {
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+    }
 }

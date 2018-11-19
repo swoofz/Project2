@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 50693815985614982}
   - component: {fileID: 60129910445200420}
   - component: {fileID: 114098634506915080}
-  - component: {fileID: 114254762033799440}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -187,17 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615c5f53c08080b48a527c45081d3afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114254762033799440
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1546904612169072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff11c40adc2e0fa46a58bcb814447e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  ship: 1
+  speed: 0.05
+  rotspeed: 10
 --- !u!212 &212861955860669378
 SpriteRenderer:
   m_ObjectHideFlags: 1
