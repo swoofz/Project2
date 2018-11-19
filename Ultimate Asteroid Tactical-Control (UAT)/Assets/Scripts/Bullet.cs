@@ -23,10 +23,11 @@ public class Bullet : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Enemy") {  // If collides with enemy
-            Destroy(collision.gameObject);          // Destory enemy
-            EnemyController.enemies -= 1;           // Update EnemyController component
-            Destroy(gameObject);                    // Destory bullet 
+        if (collision.gameObject.tag == "Enemy") {                  // If collides with enemy
+            Destroy(collision.gameObject);                          // Destory enemy
+            EnemyController.enemies -= 1;                           // Update EnemyController component
+            Destroy(gameObject);                                    // Destory bullet 
+            collision.GetComponent<EnemyController>().AddScore();   // Get a score increase after killing an enemy
         }
     }
 }

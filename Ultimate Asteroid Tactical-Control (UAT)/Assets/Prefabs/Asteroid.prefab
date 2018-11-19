@@ -126,6 +126,7 @@ MonoBehaviour:
   ship: 0
   speed: 0.3
   rotSpeed: 0
+  scoreGiver: 10
 --- !u!212 &212453075691679276
 SpriteRenderer:
   m_ObjectHideFlags: 1

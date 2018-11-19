@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;  // Create a singleton variable for this class
+    public static int score;             // Create a variable to keep track of score
 
     private float respawnTime = 5;      // Create a variable to detemine how long till respawn
     private float timeToRespawn;        // Create a variable to count the second to respawn
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (playerLives == 0) {   // If player has no lives left
+            Debug.Log("You got a score of: " + score);
             gameOver = true;      // Declare that the game is over
             Application.Quit();   // Close the program
         }
