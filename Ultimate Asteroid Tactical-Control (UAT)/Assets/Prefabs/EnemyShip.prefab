@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: 1
-  speed: 0.08
-  rotSpeed: 5
+  speed: 0.083
+  rotSpeed: 1.5
   scoreGiver: 20
 --- !u!212 &212861955860669378
 SpriteRenderer:
