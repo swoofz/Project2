@@ -17,9 +17,9 @@ public class EnemyController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        enemies += 1;                       // Intailize value when created
-        tf = GetComponent<Transform>();     // Load our transform component into a variable
-        GetMoveDir();                       // Get the direction to move
+        enemies += 1;                    // Intailize value when created
+        tf = GetComponent<Transform>();  // Load our transform component into a variable
+        GetMoveDir();                    // Get the direction to move
     }
 	
 	// Update is called once per frame
@@ -28,9 +28,9 @@ public class EnemyController : MonoBehaviour {
         if (PlayerController.instance != null) {    // If there is a playerController in the scene
             tf.position += moveDir * speed;         // Move torward the target's position when instantiated
 
-            if (ship) {                         // If the is a ship type enemy
-                GetMoveDir();                   // Move torwards the target always  
-                tf.right = moveDir * rotSpeed;  // Rotate torwards player
+            if (ship) {                      // If the is a ship type enemy
+                GetMoveDir();                // Move torwards the target always  
+                tf.up = moveDir * rotSpeed;  // Rotate torwards player
             }
         } else {                    // If not playerController
             Destroy(gameObject);    // Destory all objects with this component
@@ -50,7 +50,8 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    // Get the score of the enemy the player defeated and add it to the current score
     public void AddScore() {
-        GameManager.score += scoreGiver;
+        GameManager.score += scoreGiver; 
     }
 }

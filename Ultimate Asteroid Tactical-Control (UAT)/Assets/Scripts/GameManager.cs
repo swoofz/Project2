@@ -33,10 +33,10 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (playerLives == 0) {   // If player has no lives left
+        if (playerLives == 0) {                         // If player has no lives left
             Debug.Log("You got a score of: " + score);
-            gameOver = true;      // Declare that the game is over
-            Application.Quit();   // Close the program
+            gameOver = true;                            // Declare that the game is over
+            Application.Quit();                         // Close the program
         }
 
         if (PlayerController.instance == null && !gameOver) { // if there is not playerController in the scene;

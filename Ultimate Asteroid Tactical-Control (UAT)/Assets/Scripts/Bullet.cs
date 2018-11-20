@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    private Transform tf;   // Create a variable to store our transform component
-    public float speed;     // Create a variable to change movement speed
-    public float destoryAfter = 5;
+    private Transform tf;           // Create a variable to store our transform component
+    public float speed;             // Create a variable to change movement speed
+    public float destoryAfter = 5;  // Create a variable for designer to change how long an object can stay in the scene (spefically the bullet object)
 
     // Use this for initialization
     void Start () {
@@ -15,8 +15,8 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        tf.position += tf.right * speed;    // Move forward in the direction it is facing
-        Destroy(gameObject,destoryAfter);             // Destory after 5 sec
+        tf.position += tf.up * speed;       // Move forward in the direction it is facing
+        Destroy(gameObject,destoryAfter);   // Destory after a set amount of seconds
 
         if (PlayerController.instance == null) {    // If there is not PlayerContoller in the scene
             Destroy(gameObject);                    // Destory all gameObject with this component
