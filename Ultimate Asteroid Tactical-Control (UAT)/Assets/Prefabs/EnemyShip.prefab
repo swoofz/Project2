@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: 1
-  speed: 0.2
+  speed: 0.002
   rotSpeed: 5
   scoreGiver: 20
 --- !u!212 &212861955860669378
